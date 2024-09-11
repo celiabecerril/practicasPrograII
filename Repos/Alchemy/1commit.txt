@@ -1,0 +1,50 @@
+CREACION DEL MENU 
+
+package Repos.Alchemy;
+import java.util.Scanner;
+
+public class Alchemy {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int option;
+
+        do {
+            displayMenu();
+            System.out.print("Choose an option: ");
+            option = scanner.nextInt();
+
+            switch (option) {
+                case 1:
+                    displayElements();
+                    break;
+                case 2:
+                    proposeCombination();
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please choose an option between 1 and 3.");
+                    break;
+            }
+        } while (option != 3);
+
+        scanner.close();
+    }
+
+    public static void displayMenu() {
+        System.out.println("1. List of elements");
+        System.out.println("2. Propose combination");
+        System.out.println("3. Exit");
+    }
+
+    public static void displayElements() {
+        System.out.println("Displaying list of elements...");
+       
+    }
+
+    public static void proposeCombination() {
+        System.out.println("Proposing combination...");
+        
+    }
+}

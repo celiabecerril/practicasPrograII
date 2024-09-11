@@ -1,0 +1,79 @@
+Creo metodos: CallElevator y leaverElevator. Call: Simula que una persona llama al ascensor en un piso concreto. Leave: una persona sale del ascensor 
+
+package Repos.Ascensores;
+
+public class pyAscensores {
+    // Define the maximum capacity of the elevators
+    private static final int MAX_CAPACITY = 6;
+
+    // Define the number of rows and columns
+    private static final int NUM_ROWS = 7;
+    private static final int NUM_COLS = 6;
+
+    // Create a 2D array to represent the matrix
+    private static int[][] matrix = new int[NUM_ROWS][NUM_COLS];
+
+    // Define the floor names
+    private static String[] floorNames = {"Planta 3", "Planta 2", "Planta 1", "Planta B", "Planta -1", "Planta -2", "Planta -3"};
+
+    public static void main(String[] args) {
+        // Initialize the matrix
+        initializeMatrix();
+
+        // Print the matrix
+        printMatrix();
+    }
+
+    public static void initializeMatrix() {
+        for (int i = 0; i < NUM_ROWS; i++) {
+            for (int j = 0; j < NUM_COLS; j++) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+
+    public static void printMatrix() {
+        for (int i = 0; i < NUM_ROWS; i++) {
+            System.out.printf("%-10s", floorNames[i]);
+            for (int j = 0; j < NUM_COLS; j++) {
+                System.out.printf("%-3d", matrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    // Method to simulate a person calling the elevator
+    public static void callElevator(int floor) {
+        // Find the nearest elevator that is not full
+        int nearestElevator = -1;
+        for (int i = 0; i < NUM_COLS; i++) {
+            if (matrix[floor][i] < MAX_CAPACITY) {
+                nearestElevator = i;
+                break;
+            }
+        }
+
+        // If no elevator is available, print a message and return
+        if (nearestElevator == -1) {
+            System.out.println("There are no available elevators at the moment. Please try again later.");
+            return;
+        }
+
+        // Otherwise, add the person to the elevator and print a message
+        matrix[floor][nearestElevator]++;
+        System.out.println("Person added to elevator " + nearestElevator + " on floor " + floorNames[floor]);
+    }
+
+    // Method to simulate a person leaving the elevator
+    public static void leaveElevator(int floor, int elevator) {
+        // If the elevator is empty, print a message and return
+        if (matrix[floor][elevator] == 0) {
+            System.out.println("The elevator " + elevator + "is empty.");
+            return;
+        }
+
+        // Otherwise, remove the person from the elevator and print a message
+        matrix[floor][elevator]--;
+        System.out.println("Persona salió del ascensor " + elevator + " floor number " + floorNames[floor]);
+    }
+}

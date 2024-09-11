@@ -1,0 +1,54 @@
+Selección de comida en el día
+
+package Repos.pyDiaDietaIngesta;
+import java.util.Scanner;
+
+public class pyDiaDietaIngesta {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        String name = askName();
+        System.out.println("Patient's name: " + name);
+
+        int day = askDay();
+        System.out.println("Selected day: " + day);
+
+        int meal = askMeal();
+        System.out.println("Selected meal: " + meal);
+    }
+
+    public static String askName() {
+        System.out.print("Enter your name: ");
+        return scanner.nextLine();
+    }
+
+    public static int askDay() {
+        System.out.print("Enter a day number (1-5): ");
+        int day = scanner.nextInt();
+        scanner.nextLine(); 
+
+        while (day < 1 || day > 5) {
+            System.out.println("Invalid day number. Please enter a number between 1 and 5.");
+            System.out.print("Enter a day number (1-5): ");
+            day = scanner.nextInt();
+            scanner.nextLine();
+        }
+
+        return day;
+    }
+    public static int askMeal() {
+        System.out.println("Select intake: 1 (Breakfast) / 2 (Mid-morning) / 3 (Lunch) / 4 (Snack) / 5 (Dinner) / -1 (Previous menu)");
+        int meal = scanner.nextInt();
+        scanner.nextLine(); 
+
+        while (meal < -1 || meal > 5 || meal == 0) {
+            System.out.println("Invalid meal number. Please enter a number between 1 and 5, or -1 for the previous menu.");
+            System.out.println("Select intake: 1 (Breakfast) / 2 (Mid-morning) / 3 (Lunch) / 4 (Snack) / 5 (Dinner) / -1 (Previous menu)");
+            meal = scanner.nextInt();
+            scanner.nextLine(); 
+        }
+
+        return meal;
+    }
+    
+}

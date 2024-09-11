@@ -1,0 +1,16 @@
+RESTAURANTE:
+asignar cliente a mesa
+añadir reserva
+eliminar reserva
+añadir mesa
+eliminar mesa
+
+CLIENTE: 
+hacer reserva
+anular reserva
+
+RESERVA:
+
+
+MESA:
+

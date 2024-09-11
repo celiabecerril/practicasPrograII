@@ -1,0 +1,18 @@
+package Repos.EscalasAcordes;
+import java.util.Scanner;
+
+
+
+public class MajorScales {
+    private static final String[] notes = {"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
+    private static final int[] majorPattern = {2, 2, 1, 2, 2, 2, 1}; 
+
+
+public static void main(String[] args) {
+        System.out.println("Enter a note:");
+        Scanner scanner = new Scanner(System.in);
+        String note = scanner.nextLine().toLowerCase();
+       
+        scanner.close();
+    }
+}
